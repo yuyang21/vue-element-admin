@@ -7,3 +7,19 @@ export function getList(params) {
     params
   })
 }
+
+export function createAdmin(params) {
+  return request({
+    url: '/admin/create',
+    method: 'post',
+    params
+  })
+}
+
+export function updateAdmin(data) {
+  return request({
+    url: '/admin/update',
+    method: 'post',
+    data
+  })
+}

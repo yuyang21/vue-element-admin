@@ -1,13 +1,13 @@
 import Mock from 'mockjs'
 
 const data = Mock.mock({
-  'items|30': [{
+  'items|4': [{
     id: '@id',
-    title: '@sentence(10, 20)',
-    'status|1': ['published', 'draft', 'deleted'],
-    author: 'name',
-    display_time: '@datetime',
-    pageviews: '@integer(300, 5000)'
+    user_name: '@name(0, 1)',
+    'status|1': ['正常', '禁用', '注销'],
+    email: 'root@yyzyy.com',
+    create_time: +Mock.Random.date('T'),
+    mobile: '@id'
   }]
 })
 
@@ -23,6 +23,28 @@ export default [
           total: items.length,
           items: items
         }
+      }
+    }
+  },
+
+  {
+    url: '/admin/create',
+    type: 'post',
+    response: _ => {
+      return {
+        code: 20000,
+        data: 'success'
+      }
+    }
+  },
+
+  {
+    url: '/admin/update',
+    type: 'post',
+    response: _ => {
+      return {
+        code: 20000,
+        data: 'success'
       }
     }
   }

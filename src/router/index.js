@@ -46,33 +46,69 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/home',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      path: 'home',
+      name: 'Home',
+      component: () => import('@/views/home/index'),
+      meta: { title: '首页', icon: 'home' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/system',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/system/admin',
+    name: 'System',
+    meta: { title: '系统设置', icon: 'setting' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'admin',
+        name: 'Admin',
+        component: () => import('@/views/system/admin/index'),
+        meta: { title: '管理员列表', icon: 'boss' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'role',
+        name: 'Role',
+        component: () => import('@/views/system/role/index'),
+        meta: { title: '角色管理', icon: 'role' }
+      },
+      {
+        path: 'menu',
+        name: 'Menu',
+        component: () => import('@/views/system/menu/index'),
+        meta: { title: '菜单管理', icon: 'menu' }
+      },
+      {
+        path: 'sql',
+        name: 'Sql',
+        component: () => import('@/views/system/sql/index'),
+        meta: { title: 'SQL监控', icon: 'sql' }
+      },
+      {
+        path: 'job',
+        name: 'Job',
+        component: () => import('@/views/system/job/index'),
+        meta: { title: '定时任务', icon: 'job' }
+      },
+      {
+        path: 'config',
+        name: 'Config',
+        component: () => import('@/views/system/config/index'),
+        meta: { title: '参数管理', icon: 'config' }
+      },
+      {
+        path: 'oss',
+        name: 'Oss',
+        component: () => import('@/views/system/oss/index'),
+        meta: { title: '文件上传', icon: 'oss' }
+      },
+      {
+        path: 'log',
+        name: 'Log',
+        component: () => import('@/views/system/log/index'),
+        meta: { title: '系统日志', icon: 'log' }
       }
     ]
   },
@@ -144,17 +180,6 @@ export const constantRoutes = [
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
         meta: { title: 'menu2' }
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
       }
     ]
   },
